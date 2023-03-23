@@ -1,0 +1,109 @@
+.bestof{
+    margin-top: 170px;
+    padding-top: 130px;
+    background-image: url(../images/bestof/bg.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 1310px;
+    padding-bottom: 100px;
+    &__content{
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+        align-items: center;
+        margin-top: 70px;
+    }
+    &__list{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 100px;
+    }
+    &__item{
+        padding: 25px 35px;
+        border: 4px solid rgba(55, 131, 120, 0.6705882353);
+        max-width: 600px;
+        border-radius: 15px;
+        min-height: 200px;
+        &-title{
+            font-weight: 500;
+            font-size: 32px;
+            line-height: 47px;
+        }
+        &-description{
+            margin-top: 10px;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 130%;
+            color: rgba(0, 0, 0, 0.5);
+        }
+        &-left{
+            text-align: right;
+            background: linear-gradient(270deg, #C3EEE8 26.37%, rgba(195, 226, 222, 0.75) 63.87%, rgba(231, 243, 242, 0.4) 103.6%);
+        }
+        &-left &-description{
+            margin-left: auto;
+            max-width: 438px;
+        }
+        &-right{
+            background: linear-gradient(270deg, rgba(231, 243, 242, 0.4) 26.37%, rgba(195, 226, 222, 0.75) 63.87%, #C3EEE8 103.6%);
+            text-align: left;
+        }
+        &-right &-description{
+            max-width: 438px;
+        }
+    }
+    &__hero{
+        animation: bestof-hero 10s infinite;
+    }
+}
+
+@keyframes bestof-hero {
+    0%{
+        transform: scale(1.15)
+    }
+    50%{
+        transform: scale(1)
+    }
+    100%{
+        transform: scale(1.15)
+    }
+}
+
+@include desktop{
+    .bestof{
+        &__item{
+            padding: 8px;
+            text-align: center;
+            &-title{
+                font-size: 20px;
+            }
+            &-description{
+                font-size: 18px;
+            }
+        }
+        &__title {
+            font-size: 32px;
+        }
+        &__subtitle{
+            font-size: 20px;
+        }
+    }
+}
+
+@include laptop{
+    .bestof{
+        &__content{
+            flex-direction: column;
+            gap: 15px;
+        }
+        &__list{
+            gap: 15px;
+        }
+        &__hero{
+            order: 1;
+            max-width: 250px;
+        }
+    }
+}

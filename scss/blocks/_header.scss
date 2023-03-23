@@ -1,0 +1,194 @@
+.header{
+    &__container{
+        min-height: 130px;
+        padding-top: 8px;
+    }
+    &__navigation{
+        display: flex;
+        justify-content: space-between;
+        &-list{
+            display: flex;
+            font-size: 28px;
+            line-height: 41px;
+            align-items: center;
+            gap: 80px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        &-item{
+            transition: 0.4s all;
+            position: relative;
+            &:hover{
+                color: $main-color;
+            }
+            &:hover:before{
+                width: 100%;
+                transform: scale(1);
+                opacity: 1;
+                top: 180%;
+            }
+            &::before {
+                transition: 0.5s all;
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 150%;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+                width: 100%;
+                height: 10px;
+                margin: 0 auto;
+                background-color: $main-color;
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+    }
+    &__content{
+        background-image: url(../images/header-bg.png);
+        background-position: bottom;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 1197px;
+
+        text-align: center;
+    }
+    &__title{
+        margin: 0 auto;
+        padding-top: 70px;
+        font-family: 'Merienda', cursive;
+        color: white;
+        font-weight: 400;
+        font-size: 68px;
+        max-width: 780px;
+    }
+    &__description{
+        margin: 0 auto;
+        margin-top: 22px;
+        color: rgba(0, 0, 0, 0.5);
+        font-weight: 400;
+        font-size: 24px;
+        max-width: 1190px;
+    }
+    &__button{
+        display: block;
+        margin: 0 auto;
+        margin-top: 30px;
+        padding: 19px 89px;
+        background: linear-gradient(180deg, #259385 0%, #159685 100%);
+        box-shadow: 0px 20px 40px rgba(21, 113, 101, 0.2);
+        border-radius: 50px;
+        color: white;
+        font-weight: 700;
+        font-size: 30px;
+        border: 3px solid transparent;
+        transition: 0.5s all;
+        &:hover{
+            box-shadow: 1px 1px 5px #259385;
+            border: 3px solid #00000062;
+            text-shadow: 1px 1px 5px black;
+        }
+    }
+    &__hero{
+        margin-top: 70px;
+        position: relative;
+        z-index: 3;
+        &-main{
+            animation: anim_hero 10s infinite;
+        }
+    }
+    &__decoration,
+    &__decoration2{
+        max-width: 100%;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%,-20%);
+        z-index: -1;
+    }
+    &__decoration{
+        animation: anim_breathe 10s infinite;
+    }
+    &__decoration2{
+        animation: anim_line 10s infinite;
+    }
+    @keyframes anim_breathe {
+        0%{
+            transform: translate(-50%,-20%) scale(1) rotate(0deg);
+        }
+        50%{
+            transform: translate(-50%,-20%) scale(0) rotate(380deg);
+        }
+        100%{
+            transform: translate(-50%,-20%) scale(1) rotate(0deg);
+        }
+    }
+    @keyframes anim_line {
+       0%{ 
+        transform: translate(-50%,-20%) scale(1.1);
+       }
+       50%{
+        transform: translate(-50%,-20%) scale(0); 
+       }
+       100%{
+        transform: translate(-50%,-20%) scale(1.1);
+       }
+    }
+    @keyframes anim_hero {
+        0%{
+            transform: scale(1);
+        }
+        50%{
+            transform: scale(0.8);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+}
+
+
+@include desktop{
+    .header{
+        &__description{
+            max-width: 700px;
+            padding: 30px;
+        }
+    }
+}
+
+@include tablets{
+    .header{
+        &__title{
+            font-size: 42px;
+            max-width: 550px;
+        }
+        &__hero-main{
+            max-width: 250px;
+        }
+        &__decoration,
+        &__decoration2{
+            display: none;
+        }
+        .logo{
+            width: 80px;
+        }
+    }
+}
+
+@include phones{
+    .header{
+        &__content{
+            background-position: unset;
+        }
+        &__title{
+            font-size: 32px;
+        }
+        &__description{
+            font-size: 20px;
+        }
+        &__button{
+            font-size: 20px;
+        }
+    }
+}

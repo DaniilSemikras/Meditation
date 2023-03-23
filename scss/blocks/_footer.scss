@@ -1,0 +1,50 @@
+.footer {
+    background-image: url(../images/footer/background.png);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 110px;
+    padding-bottom: 30px;
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__item {
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 41px;
+        transition: 0.4s all;
+
+        &:hover {
+            color: $main-color;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        &-main {
+            gap: 40px;
+        }
+
+        &-social {
+            gap: 30px;
+        }
+    }
+
+    &__item-social {
+        path {
+            transition: 0.5s all;
+        }
+        &:hover path{
+            fill: $main-color;
+        }
+    }
+}

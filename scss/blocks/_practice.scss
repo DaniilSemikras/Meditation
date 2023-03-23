@@ -1,0 +1,140 @@
+.practice{
+    margin-top: 40px;
+    padding-top: 70px;
+    &__title{
+        font-family: 'Merienda', cursive;
+        font-weight: 400;
+        font-size: 54px;
+        line-height: 130%;
+        text-align: center;
+        margin: 0 auto;
+        max-width: 700px;
+    }
+    &__subtitle{
+        text-align: center;
+        margin: 0 auto;
+        max-width: 1105px;
+        margin-top: 30px;
+        font-weight: 400;
+        font-size: 24px;
+        color: rgba(0, 0, 0, 0.5);
+    }
+    &__image-wrapper img{
+        max-width: 100%;
+        width: 730px;
+    }
+    &__content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 70px;
+        gap: 170px;
+    }
+    &__list{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        min-width: 680px;
+        flex-grow: 2;
+    }
+    &__item{
+        max-width: 680px;
+        position: relative;
+        a{
+            display: block;
+            padding: 35px 30px;
+        }
+        &-title{
+            font-weight: 500;
+            font-size: 32px;
+        }
+        &-description{
+            font-weight: 400;
+            font-size: 24px;
+            color: rgba(0, 0, 0, 0.5);
+        }
+        &-arrow{
+            position: absolute;
+            right: 50px;
+            bottom: 20px;
+            opacity: 0;
+            transition: 1s all;
+        }
+        &:hover &-arrow{
+            opacity: 1;
+        }
+        &:hover::after{
+            opacity: 1;
+        }
+        &:after{
+            content: "";
+            background-image: url(../images/practice/bg.png);
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 25px;
+            top: 0; 
+            left: 0;
+            width: 100%; 
+            height: 100%;
+            z-index: -1;
+            opacity: 0;
+            transition: 1s all;
+            box-shadow: 0px 8px 50px rgba(26, 127, 114, 0.2);
+        }
+    }
+}
+
+@include desktop{
+    .practice{
+        &__content{
+            flex-direction: column;
+            gap: 0px;
+        }
+        &__list{
+            align-items: center;
+            text-align: center;
+        }
+        &__image{
+            width: 500px;
+            flex-grow: initial;
+        }
+        &__title{
+            font-size: 32px;
+        }
+        &__subtitle{
+            font-size: 20px;
+        }
+    }
+}
+
+@include tablets{
+    .practice{
+        &__list{
+            min-width: initial;
+        }
+        &__item{
+            max-width: 500px;
+            a{
+                padding: 20px;
+            }
+            &-arrow{
+                display: none;
+            }
+            &-title{
+                font-size: 25px;
+            }
+            &-description{
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@include phones{
+    .practice{
+        &__list{
+            gap: 10px;
+        }
+    }
+}
